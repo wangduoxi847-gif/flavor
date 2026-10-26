@@ -65,12 +65,21 @@
             <div class="practice-copy">
               <p class="item-label">01 / 协作与效率</p><h3>AI 工作流（多助手协作）</h3>
               <p><strong>问题</strong>：日常任务和资料一多，待办事项就容易散在不同地方。只靠记忆安排，容易漏掉需要跟进的事情。</p>
-              <p><strong>做法</strong>：按助手特点分工。Muse 负责提醒、跟踪与整理：每天一条合并消息，定时复盘，资料按主题归档。Codex 把任务拆小并执行落地，需要动脑、商量的任务交给 Claude。Codex 平时使用低成本的默认模型 Sol，硬任务才用高能力模型 Astra；不开 Fast / Ultrafast，额度只花在真实需求上，不为消耗额度而增加任务。</p>
+              <p><strong>做法</strong>：按助手特点分工。Muse 负责提醒、跟踪与整理：每天一条合并消息，定时复盘，资料按主题归档。Codex 把任务拆小并执行落地，需要动脑、商量的任务交给 Claude。</p>
               <p><strong>结果</strong>：每天有一份合并清单，定期有复盘记录。重复事项按清单和提醒推进，不再依赖临时想起。</p>
-              <p class="practice-example"><strong>合并清单样例 · 通用占位内容</strong><br>□ 今日合并消息：整理待办清单、归档一份通用文档、检查一条查询命令。<br>□ 定时跟进：提醒检查未完成的“归档通用文档”，完成后在清单中标记。<br>□ 晚间复盘：记录已完成项和待跟进项，将清单放入“日常复盘”分类。</p>
+              <aside class="usage-note" aria-label="模型使用原则"><strong>使用原则</strong>：日常使用低成本默认模型 Sol，硬任务才用高能力模型 Astra。不开 Fast / Ultrafast，额度只用于真实需求，不为消耗额度而增加任务。</aside>
+              <div class="practice-example" aria-labelledby="checklist-title">
+                <h4 id="checklist-title">一条合并消息 · 晚间清单</h4>
+                <p class="example-note">通用演示数据；以下状态不代表真实私人任务的完成记录。</p>
+                <ul class="example-checklist">
+                  <li><span class="task-state">已完成</span><div>归档一份通用说明文档<small>归档位置：工具说明 / 通用说明.md</small></div></li>
+                  <li><span class="task-state">已完成</span><div>记录一条文件查询命令<small>归档位置：工具说明 / 命令速查.md</small></div></li>
+                  <li><span class="task-state task-pending">待跟进</span><div>核对一份待整理文件的主题<small>下次提醒：确认分类后归档；当前保留在“待整理”。</small></div></li>
+                </ul>
+                <p class="example-result">复盘摘要：说明文档和命令记录已归档，分类待确认项继续跟进。清单归档：日常复盘 / 清单样例.md。</p>
+              </div>
               <div class="tags"><span>多助手协作</span><span>自动化提醒</span><span>资料整理</span></div>
             </div>
-            <span class="item-mark" aria-hidden="true">↗</span>
           </article>
           <article class="practice-item">
             <div class="practice-visual visual-files" aria-hidden="true"><div class="file-stack"><span>资料</span><span>分类</span><span>归档</span></div><small>从零散到有序</small></div>
@@ -79,10 +88,23 @@
               <p><strong>问题</strong>：文件散落在不同位置，命名方式不统一。找一份资料时，需要反复翻目录，文件之间的归属也不清楚。</p>
               <p><strong>做法</strong>：先盘点文件，再确定命名与分类规则，按规则批量处理。把整理流程写成可复用的步骤，执行后核对文件名称、分类和处理结果。</p>
               <p><strong>结果</strong>：资料形成可检索的结构，可以按名称和分类查找。同一类整理任务以后直接复用已有流程，不必重新确定一遍规则。</p>
-              <p class="practice-example"><strong>归档实例 · 通用占位内容</strong><br>命名规则：日期-主题-序号，例如 <code>2026-10-26-资料整理-01.md</code>。<br>分类示例：“资料整理”“工具说明”“日常复盘”分别建文件夹；上述文件归入“资料整理”。<br>整理前：“新建文档.md”“整理记录最终版.md”散落在不同位置，找资料要逐个翻目录。<br>整理后：按规则命名并归入主题文件夹；查找“2026-10-26”或“资料整理”，即可按日期、名称和分类定位。</p>
+              <div class="practice-example" aria-labelledby="archive-title">
+                <h4 id="archive-title">三份文件的归档前后对照</h4>
+                <p class="example-note">实际测试 · 文件为专门创建的通用样本。</p>
+                <p>命名规则：<code>日期-主题-序号.md</code>。整理前集中在“待整理”目录，名称不统一；整理后按主题分文件夹，名称包含日期和主题。</p>
+                <table class="example-table archive-table">
+                  <caption class="sr-only">测试文件原名、目标分类与新文件名</caption>
+                  <thead><tr><th scope="col">整理前</th><th scope="col">归档后：分类 / 新文件名</th></tr></thead>
+                  <tbody>
+                    <tr><td>新建文档.md</td><td><span class="folder-label">资料整理 /</span><code>2026-10-26-资料整理-01.md</code></td></tr>
+                    <tr><td>说明副本.md</td><td><span class="folder-label">工具说明 /</span><code>2026-10-26-工具说明-01.md</code></td></tr>
+                    <tr><td>记录最终版.md</td><td><span class="folder-label">日常复盘 /</span><code>2026-10-26-日常复盘-01.md</code></td></tr>
+                  </tbody>
+                </table>
+                <p class="example-result">实测结果：三份文件均已复制到对应分类，逐份核对内容指纹（SHA-256）一致，原文件保留。进入主题文件夹，或按日期、主题搜索名称，即可定位样本。</p>
+              </div>
               <div class="tags"><span>批量处理</span><span>文件分类</span><span>流程复用</span></div>
             </div>
-            <span class="item-mark" aria-hidden="true">↗</span>
           </article>
           <article class="practice-item">
             <div class="practice-visual visual-terminal" aria-hidden="true"><div class="terminal-dots"><i></i><i></i><i></i></div><code><span>PS &gt;</span> Get-ChildItem<br><span>PS &gt;</span> Get-PSDrive<br><span>PS &gt;</span> <b>_</b></code><small>从命令到方法</small></div>
@@ -90,11 +112,35 @@
               <p class="item-label">03 / 系统与动手</p><h3>PowerShell 玩机</h3>
               <p><strong>问题</strong>：Windows 日常管理中有不少重复操作。每次手动打开界面、查找选项并逐项处理，步骤多，也不方便再次执行。</p>
               <p><strong>做法</strong>：用 PowerShell 小脚本完成系统信息查询、批量处理与重复任务。把用到的命令、操作顺序和核对方法整理清楚，保留为下次可用的步骤。</p>
-              <p><strong>结果</strong>：原本需要手动重复的操作变成可重复运行的脚本。遇到同类任务时，可以沿用已经整理好的命令和步骤。</p>
-              <p class="practice-example"><strong>命令实例 · 已在 Windows 本机验证</strong><br><code>Get-ComputerInfo</code>：查询 Windows 系统与计算机信息。<br><code>Get-PSDrive</code>：列出当前会话的驱动器，其中文件系统驱动器显示已用和可用空间。<br><code>Get-ChildItem</code>：列出当前位置的文件和文件夹。<br>三条命令均为只读查询；这里只展示命令与用途。</p>
+              <p><strong>结果</strong>：文件清单查询已整理成可重复运行的小脚本。对同一组测试文件连续运行两次，清单一致，文件内容未变；这一结果仅说明下面的只读清单演示已跑通。</p>
+              <div class="practice-example" aria-labelledby="script-title">
+                <h4 id="script-title">只读脚本 · 列出文件名与大小</h4>
+                <p class="example-note">实际测试 · 与上方相同的三份通用样本。</p>
+                <p>脚本保存为 <code>Get-FileInventory.ps1</code>。默认读取当前文件夹，也可通过 <code>Path</code> 指定目录；列出直接包含的可见文件，不递归、不改名、不写入文件。</p>
+                <pre class="example-code"><code>param([string]$Path = '.')
+
+Get-ChildItem -LiteralPath $Path -File -ErrorAction Stop |
+    Sort-Object Name |
+    Select-Object Name, Length</code></pre>
+                <table class="example-table inventory-table">
+                  <caption>对“待整理”目录的实际输出</caption>
+                  <thead><tr><th scope="col">Name · 文件名</th><th scope="col">Length · 字节</th></tr></thead>
+                  <tbody>
+                    <tr><td>记录最终版.md</td><td>7</td></tr>
+                    <tr><td>说明副本.md</td><td>7</td></tr>
+                    <tr><td>新建文档.md</td><td>7</td></tr>
+                  </tbody>
+                </table>
+                <p class="example-result">实测核对：连续两次输出一致，运行前后文件内容指纹一致。空目录返回空清单；目录不存在时明确报错。字节数仅对应本次测试样本。</p>
+                <h5>另外三条已验证的查询命令</h5>
+                <dl class="command-list">
+                  <div><dt><code>Get-ComputerInfo</code></dt><dd>查询 Windows 系统与计算机信息。</dd></div>
+                  <div><dt><code>Get-PSDrive</code></dt><dd>列出当前会话驱动器，其中文件系统驱动器显示已用和可用空间。</dd></div>
+                  <div><dt><code>Get-ChildItem</code></dt><dd>列出当前位置的文件和文件夹。</dd></div>
+                </dl>
+              </div>
               <div class="tags"><span>PowerShell</span><span>Windows</span><span>脚本实践</span></div>
             </div>
-            <span class="item-mark" aria-hidden="true">↗</span>
           </article>
         </div>
       </div>

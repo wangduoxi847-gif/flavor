@@ -12,3 +12,27 @@
 @media(max-width:760px){.wrap{width:calc(100% - 40px)}.header{height:auto;min-height:92px;padding-block:17px;align-items:flex-start;gap:14px}.wordmark{font-size:29px}nav{gap:5px 16px;flex-wrap:wrap;justify-content:flex-end;max-width:258px;font-size:11px}nav a{padding:4px 0}.hero{padding-top:46px;grid-template-columns:1fr;gap:32px}h1{font-size:clamp(42px,8.3vw,58px);letter-spacing:-1px}.eyebrow{font-size:10px;margin-bottom:23px}.hero-description{font-size:13px}.hero-actions{gap:22px}.button{font-size:12px;padding:11px 18px;gap:24px}.text-link{font-size:12px}.composition{min-height:330px;margin-top:0}.orbit{top:36px}.orbit-center{top:106px}.label-ai{top:68px;left:27%}.label-workflow{top:156px;right:18%}.label-action{top:243px;left:32%}.hero-bottom{margin-top:0;padding-top:2px;font-size:10px}.section{padding-block:56px}.about,.skills{grid-template-columns:1fr;gap:14px}h2{font-size:29px}.about-content{padding-top:0}.lead{font-size:18px}.desktop-break{display:none}.section-index{margin-bottom:16px}.about-content>p:not(.lead){font-size:13px}.about-note{font-size:11px;gap:10px}.practice-section{padding-block:52px 12px}.section-top{display:block}.section-aside{font-size:11px}.section-top .section-aside br{display:none}.practice-item{grid-template-columns:1fr 22px;gap:20px 10px;padding-block:26px}.practice-visual{grid-column:1/-1;height:166px}.practice-copy{grid-column:1}.item-mark{grid-column:2;grid-row:2;padding-top:23px}h3{font-size:21px}.practice-copy>p:not(.item-label){font-size:12px}.visual-flow>span{font-size:20px}.visual-files .file-stack{transform:scale(1.1)}.visual-terminal{padding-left:30px}.skills h2{font-size:29px}.skills .section-aside{margin-bottom:0}.skill-list{margin-top:0}.skill-list>div{grid-template-columns:125px 1fr;gap:10px;padding:20px 0}dt,dd{font-size:12px}.contact-section{padding-block:48px}.contact-inner{align-items:flex-start;flex-direction:column;gap:28px}.contact-section h2{font-size:32px}.contact-section p:last-child{font-size:12px}.button-light{min-width:220px}.footer{padding-block:25px;gap:15px 12px;flex-wrap:wrap;min-height:110px}.footer p{order:3;flex-basis:100%;font-size:9px}.back-top{font-size:10px}}
 @media(max-width:360px){nav{gap:4px 12px;max-width:196px}h1{font-size:39px}.hero-actions{gap:14px}.hero-actions .button{gap:14px;padding-inline:14px}.skill-list>div{grid-template-columns:105px 1fr}.label-workflow{right:8%}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+
+/* Examples inherit the existing palette and type scale. */
+.practice-copy{min-width:0}
+.practice-example{max-width:610px;margin:22px 0 20px;padding:20px;border:1px solid var(--line);background:var(--paper);font-size:13px;line-height:1.9;color:var(--muted);overflow-wrap:anywhere}
+.practice-example h4{margin:0 0 6px;color:var(--ink);font-size:14px;font-weight:500}
+.practice-example h5{margin:20px 0 10px;font-size:13px;color:var(--ink);font-weight:500}
+.practice-example p{margin:0 0 14px}.practice-example p:last-child{margin-bottom:0}
+.practice-example .example-note{font-size:11px;margin-bottom:16px}
+.usage-note{max-width:610px;margin:18px 0;padding-left:14px;border-left:2px solid var(--line);font-size:12px;line-height:2;color:var(--muted)}
+.example-checklist{list-style:none;margin:0;padding:0}
+.example-checklist li{display:flex;align-items:baseline;gap:12px;padding:12px 0;border-top:1px solid var(--line)}
+.example-checklist small{display:block;font-size:11px;margin-top:4px}
+.task-state{flex-shrink:0;font-size:10px;color:var(--ink);border:1px solid var(--line);padding:0 6px}.task-pending{color:var(--accent)}
+.practice-example .example-result{border-top:1px solid var(--line);padding-top:12px;margin-top:14px;font-size:12px}
+.example-table{width:100%;border-collapse:collapse;table-layout:fixed;margin:16px 0;font-size:12px;text-align:left}
+.example-table caption{text-align:left;font-size:12px;color:var(--ink);margin-bottom:8px}
+.example-table th,.example-table td{padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top;font-weight:400;overflow-wrap:anywhere}
+.example-table th{color:var(--ink);border-top:1px solid var(--line)}.archive-table th:first-child{width:31%}
+.folder-label{display:block;font-size:11px;margin-bottom:3px}
+.practice-example code{font-family:Consolas,"Cascadia Mono",monospace;font-size:12px}
+.example-code{padding:14px;background:var(--ink);color:var(--paper);white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.8;margin:16px 0}
+.inventory-table th:last-child{width:36%}.inventory-table td:last-child{font-variant-numeric:tabular-nums}
+.command-list{margin:0}.command-list>div{margin-top:12px}.command-list dt{font-size:12px;color:var(--ink)}.command-list dd{font-size:12px;margin-top:3px}
+@media(max-width:760px){.practice-copy{grid-column:1/-1}.practice-example{padding:15px;font-size:12px}.practice-example h4{font-size:13px}.example-table th,.example-table td{padding:9px 5px}.example-checklist li{gap:8px}.example-code{padding:12px}.practice-example code{font-size:11px}}
