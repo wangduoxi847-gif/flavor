@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="flavor 工具实践集，探索 AI 工作流、多助手协作与本地自动化，让工具协作，让想法落地。">
+  <meta name="description" content="flavor 工具实践集，记录多助手协作、文件整理与 Windows 日常操作，附合并清单、归档示例与通用命令。">
   <meta name="theme-color" content="#f5f3ed">
   <title>flavor｜工具实践集</title>
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
@@ -25,8 +25,8 @@
     <section class="hero wrap" aria-labelledby="hero-title">
       <div class="hero-copy">
         <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> flavor · 工具实践集</p>
-        <h1 id="hero-title">让工具协作，<br>让想法<span class="accent">落地。</span></h1>
-        <p class="hero-description">记录工具与实践的连接。<br>探索 AI、工作流与日常自动化。</p>
+        <h1 id="hero-title">日常工具，<br>实践<span class="accent">记录。</span></h1>
+        <p class="hero-description">多助手协作、文件整理与 Windows 日常操作。<br>从问题和做法，到结果与具体实例。</p>
         <div class="hero-actions">
           <a class="button button-dark" href="#practice">看看这些实践 <span aria-hidden="true">↘</span></a>
           <a class="text-link" href="#skills">浏览工具箱 <span aria-hidden="true">↓</span></a>
@@ -58,15 +58,16 @@
 
     <section class="practice-section" id="practice" aria-labelledby="practice-title">
       <div class="wrap">
-        <div class="section-top"><div><p class="section-index">02 / 实践与工具</p><h2 id="practice-title">把日常问题，<br>变成动手的起点。</h2></div><p class="section-aside">三项具体实践。<br>问题 → 做法 → 结果。</p></div>
+        <div class="section-top"><div><p class="section-index">02 / 实践与工具</p><h2 id="practice-title">三类任务，<br>做法与实例。</h2></div><p class="section-aside">三项具体实践。<br>问题 → 做法 → 结果。</p></div>
         <div class="practice-list">
           <article class="practice-item">
             <div class="practice-visual visual-flow" aria-hidden="true"><span>Muse</span><i>⇄</i><span>Codex</span><small>想法 · 分工 · 执行</small></div>
             <div class="practice-copy">
               <p class="item-label">01 / 协作与效率</p><h3>AI 工作流（多助手协作）</h3>
               <p><strong>问题</strong>：日常任务和资料一多，待办事项就容易散在不同地方。只靠记忆安排，容易漏掉需要跟进的事情。</p>
-              <p><strong>做法</strong>：Muse 负责信息梳理、任务拆解与定时提醒，Codex 负责具体执行。相关资料按主题结构化归档，把待办和资料放回对应的任务中。</p>
+              <p><strong>做法</strong>：按助手特点分工。Muse 负责提醒、跟踪与整理：每天一条合并消息，定时复盘，资料按主题归档。Codex 把任务拆小并执行落地，需要动脑、商量的任务交给 Claude。Codex 平时使用低成本的默认模型 Sol，硬任务才用高能力模型 Astra；不开 Fast / Ultrafast，额度只花在真实需求上，不为消耗额度而增加任务。</p>
               <p><strong>结果</strong>：每天有一份合并清单，定期有复盘记录。重复事项按清单和提醒推进，不再依赖临时想起。</p>
+              <p class="practice-example"><strong>合并清单样例 · 通用占位内容</strong><br>□ 今日合并消息：整理待办清单、归档一份通用文档、检查一条查询命令。<br>□ 定时跟进：提醒检查未完成的“归档通用文档”，完成后在清单中标记。<br>□ 晚间复盘：记录已完成项和待跟进项，将清单放入“日常复盘”分类。</p>
               <div class="tags"><span>多助手协作</span><span>自动化提醒</span><span>资料整理</span></div>
             </div>
             <span class="item-mark" aria-hidden="true">↗</span>
@@ -78,17 +79,19 @@
               <p><strong>问题</strong>：文件散落在不同位置，命名方式不统一。找一份资料时，需要反复翻目录，文件之间的归属也不清楚。</p>
               <p><strong>做法</strong>：先盘点文件，再确定命名与分类规则，按规则批量处理。把整理流程写成可复用的步骤，执行后核对文件名称、分类和处理结果。</p>
               <p><strong>结果</strong>：资料形成可检索的结构，可以按名称和分类查找。同一类整理任务以后直接复用已有流程，不必重新确定一遍规则。</p>
+              <p class="practice-example"><strong>归档实例 · 通用占位内容</strong><br>命名规则：日期-主题-序号，例如 <code>2026-10-26-资料整理-01.md</code>。<br>分类示例：“资料整理”“工具说明”“日常复盘”分别建文件夹；上述文件归入“资料整理”。<br>整理前：“新建文档.md”“整理记录最终版.md”散落在不同位置，找资料要逐个翻目录。<br>整理后：按规则命名并归入主题文件夹；查找“2026-10-26”或“资料整理”，即可按日期、名称和分类定位。</p>
               <div class="tags"><span>批量处理</span><span>文件分类</span><span>流程复用</span></div>
             </div>
             <span class="item-mark" aria-hidden="true">↗</span>
           </article>
           <article class="practice-item">
-            <div class="practice-visual visual-terminal" aria-hidden="true"><div class="terminal-dots"><i></i><i></i><i></i></div><code><span>PS &gt;</span> Get-ChildItem<br><span>PS &gt;</span> Get-Help<br><span>PS &gt;</span> <b>_</b></code><small>从命令到方法</small></div>
+            <div class="practice-visual visual-terminal" aria-hidden="true"><div class="terminal-dots"><i></i><i></i><i></i></div><code><span>PS &gt;</span> Get-ChildItem<br><span>PS &gt;</span> Get-PSDrive<br><span>PS &gt;</span> <b>_</b></code><small>从命令到方法</small></div>
             <div class="practice-copy">
               <p class="item-label">03 / 系统与动手</p><h3>PowerShell 玩机</h3>
               <p><strong>问题</strong>：Windows 日常管理中有不少重复操作。每次手动打开界面、查找选项并逐项处理，步骤多，也不方便再次执行。</p>
               <p><strong>做法</strong>：用 PowerShell 小脚本完成系统信息查询、批量处理与重复任务。把用到的命令、操作顺序和核对方法整理清楚，保留为下次可用的步骤。</p>
               <p><strong>结果</strong>：原本需要手动重复的操作变成可重复运行的脚本。遇到同类任务时，可以沿用已经整理好的命令和步骤。</p>
+              <p class="practice-example"><strong>命令实例 · 已在 Windows 本机验证</strong><br><code>Get-ComputerInfo</code>：查询 Windows 系统与计算机信息。<br><code>Get-PSDrive</code>：列出当前会话的驱动器，其中文件系统驱动器显示已用和可用空间。<br><code>Get-ChildItem</code>：列出当前位置的文件和文件夹。<br>三条命令均为只读查询；这里只展示命令与用途。</p>
               <div class="tags"><span>PowerShell</span><span>Windows</span><span>脚本实践</span></div>
             </div>
             <span class="item-mark" aria-hidden="true">↗</span>
@@ -102,12 +105,12 @@
       <dl class="skill-list">
         <div><dt><span aria-hidden="true">⌘</span> 脚本与系统</dt><dd>PowerShell <span>／</span> Windows 玩机<br>系统信息查询、批量处理与重复任务脚本。</dd></div>
         <div><dt><span aria-hidden="true">◎</span> 基础知识</dt><dd>网络基础<br>用于理解日常工具的连接与运行条件。</dd></div>
-        <div><dt><span aria-hidden="true">✳</span> AI 工具</dt><dd>Muse <span>／</span> Codex <span>／</span> ChatGPT<br>信息梳理、任务拆解、提醒与执行分工。</dd></div>
+        <div><dt><span aria-hidden="true">✳</span> AI 工具</dt><dd>Muse <span>／</span> Codex <span>／</span> ChatGPT <span>／</span> Claude<br>按特点分工：Muse 提醒与复盘，Codex 拆小执行，ChatGPT 作为日常主力，Claude 用于商量与动脑。</dd></div>
         <div><dt><span aria-hidden="true">≡</span> 表达与整理</dt><dd>Markdown <span>／</span> 文档整理<br>按主题归档资料，记录清单、复盘与操作步骤。</dd></div>
       </dl>
     </section>
 
   </main>
-  <footer class="wrap footer"><a class="wordmark" href="#top" aria-label="返回首页">flavor<span aria-hidden="true">.</span></a><p>© <span id="year">2026</span> flavor · 保持好奇，持续实践。</p><a class="back-top" href="#top">回到顶部 ↑</a></footer>
+  <footer class="wrap footer"><a class="wordmark" href="#top" aria-label="返回首页">flavor<span aria-hidden="true">.</span></a><p>© <span id="year">2026</span> flavor · 清单、归档与脚本。</p><a class="back-top" href="#top">回到顶部 ↑</a></footer>
 </body>
 </html>
