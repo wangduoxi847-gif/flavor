@@ -5,6 +5,15 @@ const year = document.getElementById("year");
 if (year) year.textContent = String(new Date().getFullYear());
 
 const navigation = [...document.querySelectorAll('nav a[href^="#"]')];
+// Direct links to a work open its disclosure before scrolling to it.
+function revealWork() {
+  let target;
+  try { target = document.getElementById(decodeURIComponent(location.hash.slice(1))); } catch { return; }
+  const work = target?.closest("details.work-card");
+  if (work) { work.open = true; target.scrollIntoView({ block: "start" }); }
+}
+window.addEventListener("hashchange", revealWork);
+revealWork();
 if ("IntersectionObserver" in window) {
   const visibleSections = new Map();
   const observer = new IntersectionObserver((entries) => {

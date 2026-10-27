@@ -9,6 +9,8 @@
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./assets/styles.css">
   <script src="./assets/main.js" defer></script>
+  <script src="./assets/tools-core.js" defer></script>
+  <script src="./assets/tools-ui.js" defer></script>
 </head>
 <body id="top">
   <a class="skip-link" href="#main">跳到正文</a>
@@ -58,7 +60,86 @@
 
     <section class="practice-section" id="practice" aria-labelledby="practice-title">
       <div class="wrap">
-        <div class="section-top"><div><p class="section-index">02 / 实践与工具</p><h2 id="practice-title">三类任务，<br>做法与实例。</h2></div><p class="section-aside">三项具体实践。<br>问题 → 做法 → 结果。</p></div>
+        <div class="section-top"><div><p class="section-index">02 / 实践与工具</p><h2 id="practice-title">作品与工具，<br>从实例到使用。</h2></div><p class="section-aside">建站案例与可试用工具。<br>下方保留三类日常实践。</p></div>
+        <div class="works-gallery" aria-label="作品展示">
+          <details class="work-card" id="site-case" open>
+            <summary><span class="work-number">作品 01 / 建站案例</span><span>flavor · 静态作品集网站</span><span class="work-toggle" aria-hidden="true">+</span></summary>
+            <div class="work-body">
+              <div class="work-story">
+                <p><strong>问题</strong>：需要一个能展示具体实践的网站，兼顾手机阅读、免费部署和内容边界；只有方向介绍还不足以呈现成果。</p>
+                <p><strong>做法</strong>：使用原生 HTML、CSS、JavaScript，保留关于作品、实践与工具、技能三栏。按“问题、做法、结果”组织内容，再加入通用清单、归档对照和实测脚本；先本地检查，再确认发布。</p>
+                <p><strong>结果</strong>：已有静态版本部署到 GitHub Pages。发布后核对页面与资源文件和确认版本一致；本地检查覆盖 320、390、768、1280 像素宽度，未发现横向溢出。</p>
+              </div>
+              <div class="case-gallery">
+                <figure><img src="./assets/site-desktop.jpg" alt="flavor 桌面首屏：暖白背景、墨绿文字、朱红强调和双栏构图" width="1280" height="900" loading="lazy"><figcaption>桌面效果 · 1280 像素视口实拍</figcaption></figure>
+                <figure class="case-phone"><img src="./assets/site-mobile.jpg" alt="flavor 手机首屏：导航换行，内容与装饰图形纵向排列" width="390" height="844" loading="lazy"><figcaption>手机效果 · 390 像素视口实拍</figcaption></figure>
+              </div>
+              <dl class="case-facts">
+                <div><dt>需求与验收</dt><dd>需求方确定栏目、内容边界与使用偏好，查看预览并确认发布。</dd></div>
+                <div><dt>AI 协助实现</dt><dd>辅助编写页面、调整文案、执行测试与部署；不将 AI 辅助实现描述为独立手写。</dd></div>
+                <div><dt>验证方式</dt><dd>桌面与手机预览、页内导航检查、通用脚本实测，以及发布后文件一致性核验。</dd></div>
+                <div><dt>交付范围</dt><dd>纯静态页面与示例脚本，无框架、无后端。展示截图来自已完成版本，不包含访问统计或未经测量的收益。</dd></div>
+              </dl>
+            </div>
+          </details>
+          <details class="work-card" id="handoff-work">
+            <summary><span class="work-number">作品 02 / 可试用工具</span><span>任务交接单生成器</span><span class="work-toggle" aria-hidden="true">+</span></summary>
+            <div class="work-body">
+              <div class="work-story">
+                <p><strong>问题</strong>：换一个助手或隔一段时间继续任务时，目标、进度和限制散在各处，需要重新说明。</p>
+                <p><strong>做法</strong>：按六个栏目填写事实，实时生成 Markdown 交接单；保留未确认事项，不补写输入中没有的成果。</p>
+                <p><strong>结果</strong>：生成可复制、可继续编辑的交接文本。下方通用示例可以直接修改，输入只在当前页面内处理。</p>
+              </div>
+              <noscript><p class="tool-status">启用 JavaScript 后可试用生成器；本页案例和其他静态内容仍可阅读。</p></noscript>
+              <div class="tool-actions"><button type="button" id="handoff-example">载入交接示例</button><button type="button" id="handoff-clear">清空交接输入</button></div>
+              <div class="tool-columns">
+                <form id="handoff-form" class="tool-form" autocomplete="off">
+                  <label for="handoff-goal">任务目标<textarea id="handoff-goal" name="goal" rows="2" maxlength="3000"></textarea></label>
+                  <label for="handoff-done">已完成<textarea id="handoff-done" name="done" rows="3" maxlength="3000"></textarea></label>
+                  <label for="handoff-todo">下一步<textarea id="handoff-todo" name="todo" rows="3" maxlength="3000"></textarea></label>
+                  <label for="handoff-constraints">约束与边界<textarea id="handoff-constraints" name="constraints" rows="3" maxlength="3000"></textarea></label>
+                  <label for="handoff-artifacts">产出与验证<textarea id="handoff-artifacts" name="artifacts" rows="3" maxlength="3000"></textarea></label>
+                  <label for="handoff-unknown">未确认事项<textarea id="handoff-unknown" name="unknown" rows="2" maxlength="3000"></textarea></label>
+                </form>
+                <div class="tool-result">
+                  <label for="handoff-output">生成的交接单 · Markdown</label>
+                  <textarea id="handoff-output" class="tool-output" rows="28" readonly spellcheck="false"></textarea>
+                  <div class="tool-actions"><button type="button" id="handoff-copy" class="button-dark">复制交接单</button></div>
+                  <p id="handoff-status" class="tool-status" role="status" aria-live="polite"></p>
+                  <p class="tool-note">每行一项；空白栏目写为“未确认”。不调用模型、不上传、不保存输入，刷新页面会恢复通用示例。</p>
+                </div>
+              </div>
+            </div>
+          </details>
+          <details class="work-card" id="rename-work">
+            <summary><span class="work-number">作品 03 / 可试用工具</span><span>批量文件命名预览器</span><span class="work-toggle" aria-hidden="true">+</span></summary>
+            <div class="work-body">
+              <div class="work-story">
+                <p><strong>问题</strong>：批量整理前，需要看清每个文件的新名称，发现重复名称和不合法字符，避免边改边试。</p>
+                <p><strong>做法</strong>：粘贴文件名，设置日期、主题和起始序号，按“日期-主题-序号”生成对照；检查 Windows 文件名规则和本次输入中的冲突。</p>
+                <p><strong>结果</strong>：得到可复制的命名对照。发现问题时提示对应条目；只生成预览，不执行重命名，也不读取文件。</p>
+              </div>
+              <noscript><p class="tool-status">启用 JavaScript 后可试用预览器；下方归档案例仍可阅读。</p></noscript>
+              <div class="tool-actions"><button type="button" id="rename-example">载入命名示例</button><button type="button" id="rename-clear">清空命名输入</button></div>
+              <form id="rename-form" class="tool-form" autocomplete="off">
+                <label for="rename-names">原文件名 · 每行一个<textarea id="rename-names" name="names" rows="4" maxlength="12000" aria-describedby="rename-help"></textarea></label>
+                <div class="rename-options">
+                  <label for="rename-date">日期<input id="rename-date" name="date" type="date" min="1000-01-01" max="9999-12-31"></label>
+                  <label for="rename-topic">主题<input id="rename-topic" name="topic" type="text" maxlength="60"></label>
+                  <label for="rename-start">起始序号<input id="rename-start" name="start" type="number" min="1" max="999999" step="1" value="1"></label>
+                </div>
+              </form>
+              <p id="rename-help" class="tool-note">每次最多 200 行，空行忽略。保留普通文件的最后一段扩展名，序号至少两位。只填写文件名，不填完整路径；不检查磁盘中的同名文件。输入不会上传或保存。</p>
+              <table class="example-table rename-table"><caption>命名对照预览</caption><thead><tr><th scope="col">原名</th><th scope="col">新名</th><th scope="col">检查</th></tr></thead><tbody id="rename-rows"></tbody></table>
+              <div class="tool-result">
+                <label for="rename-output">可复制的命名对照</label><textarea id="rename-output" class="tool-output" rows="4" readonly spellcheck="false"></textarea>
+                <div class="tool-actions"><button type="button" id="rename-copy" class="button-dark" disabled>复制命名对照</button></div>
+                <p id="rename-status" class="tool-status" role="status" aria-live="polite"></p>
+              </div>
+            </div>
+          </details>
+        </div>
+        <h3 class="practice-divider">三类日常实践</h3>
         <div class="practice-list">
           <article class="practice-item">
             <div class="practice-visual visual-flow" aria-hidden="true"><span>Muse</span><i>⇄</i><span>Codex</span><small>想法 · 分工 · 执行</small></div>
