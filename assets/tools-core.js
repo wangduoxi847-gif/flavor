@@ -16,6 +16,7 @@
   function nameError(name) {
     if (!name || name === "." || name === "..") return "文件名为空或无效";
     if (/[<>:"/\\|?*\x00-\x1f]/.test(name)) return "含 Windows 不允许的字符，请只填文件名";
+    if (/^ /.test(name)) return "文件名以空格开头，请确认实际名称后移除";
     if (/[. ]$/.test(name)) return "文件名不能以空格或句点结尾";
     if (/^(con|prn|aux|nul|com[1-9¹²³]|lpt[1-9¹²³])(?:\.|$)/i.test(name)) return "属于 Windows 保留名称";
     if (name.length > 255) return "文件名超过 255 个字符";

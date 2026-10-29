@@ -39,10 +39,17 @@ for (const topic of ['', 'a/b', 'bad*name', 'x'.repeat(61), 'topic.']) {
   test(`invalid topic is rejected: ${topic}`, () => assert.ok(previewNames({ ...sample, topic }).errors.length));
 }
 test('invalid original names are flagged without silently sanitizing them', () => {
-  const names = ['CON.txt', 'bad?.md', 'trailing.','note.txt ', 'COM1', 'LPT².txt', 'folder/note.md', 'x'.repeat(256)];
+  const names = ['CON.txt', 'bad?.md', 'trailing.','note.txt ', ' note.txt', 'COM1', 'LPT².txt', 'folder/note.md', 'x'.repeat(256)];
   const result = previewNames({ ...sample, names:names.join('\n') });
   assert.equal(result.issueCount, names.length);
   assert.deepEqual(result.rows.map(r=>r.original), names);
+});
+test('a leading space is reported and the original text is preserved', () => {
+  const result = previewNames({ ...sample, names: ' note.txt\nnote.txt' });
+  assert.equal(result.issueCount, 1);
+  assert.equal(result.rows[0].original, ' note.txt');
+  assert.match(result.rows[0].issues[0], /空格开头/);
+  assert.equal(result.rows[1].issues.length, 0);
 });
 test('case-insensitive duplicate inputs are flagged', () => assert.equal(previewNames({ ...sample, names:'note.md\nNOTE.md' }).issueCount, 2));
 test('target conflicts with another original name are flagged', () => {

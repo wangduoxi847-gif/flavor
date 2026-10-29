@@ -31,18 +31,39 @@
   }
   handoffForm.addEventListener("input", updateHandoff);
   handoffForm.addEventListener("submit", e => e.preventDefault());
-  document.getElementById("handoff-example").addEventListener("click", () => {
+  function loadHandoffExample() {
     for (const [name, value] of Object.entries(example)) handoffForm.elements.namedItem(name).value = value;
     updateHandoff();
     handoffStatus.textContent = "已载入通用示例，可直接修改。";
-  });
-  document.getElementById("handoff-clear").addEventListener("click", () => {
+  }
+  function clearHandoff() {
     handoffForm.reset();
     updateHandoff();
     handoffStatus.textContent = "已清空输入；输出保留空白交接模板。";
+  }
+  const handoffConfirm = document.getElementById("handoff-confirm");
+  const handoffConfirmMessage = document.getElementById("handoff-confirm-message");
+  let pendingHandoffAction = null;
+  function requestHandoffChange(action, message) {
+    const hasInput = [...handoffForm.elements].some(field => typeof field.value === "string" && field.value.length > 0);
+    if (!hasInput) { action(); return; }
+    pendingHandoffAction = action;
+    handoffConfirmMessage.textContent = message;
+    handoffConfirm.returnValue = "";
+    handoffConfirm.showModal();
+  }
+  handoffConfirm.querySelector("form").addEventListener("submit", event => {
+    event.preventDefault();
+    const action = pendingHandoffAction;
+    pendingHandoffAction = null;
+    handoffConfirm.close();
+    if (event.submitter?.value === "confirm" && action) action();
   });
+  handoffConfirm.addEventListener("cancel", () => { pendingHandoffAction = null; });
+  document.getElementById("handoff-example").addEventListener("click", () => requestHandoffChange(loadHandoffExample, "载入示例会替换当前交接输入，确定继续吗？"));
+  document.getElementById("handoff-clear").addEventListener("click", () => requestHandoffChange(clearHandoff, "清空会删除当前交接输入，确定继续吗？"));
   document.getElementById("handoff-copy").addEventListener("click", () => copyOutput(handoffOutput, handoffStatus));
-  document.getElementById("handoff-example").click();
+  loadHandoffExample();
 
   const renameForm = document.getElementById("rename-form");
   const renameRows = document.getElementById("rename-rows");

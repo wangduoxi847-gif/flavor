@@ -83,7 +83,7 @@
             </div>
           </details>
           <details class="work-card" id="handoff-work">
-            <summary><span class="work-number">作品 02 / 可试用工具</span><span>任务交接单生成器</span><span class="work-toggle" aria-hidden="true">+</span></summary>
+            <summary><span class="work-number">作品 02 / 可试用工具</span><span>任务交接单生成器</span><span class="work-state"><span class="when-closed">展开试用</span><span class="when-open">收起工具</span></span><span class="work-toggle" aria-hidden="true">+</span></summary>
             <div class="work-body">
               <div class="work-story">
                 <p><strong>问题</strong>：换一个助手或隔一段时间继续任务时，目标、进度和限制散在各处，需要重新说明。</p>
@@ -92,6 +92,14 @@
               </div>
               <noscript><p class="tool-status">启用 JavaScript 后可试用生成器；本页案例和其他静态内容仍可阅读。</p></noscript>
               <div class="tool-actions"><button type="button" id="handoff-example">载入交接示例</button><button type="button" id="handoff-clear">清空交接输入</button></div>
+              <dialog id="handoff-confirm" class="confirm-dialog" aria-labelledby="handoff-confirm-title" aria-describedby="handoff-confirm-message">
+                <h4 id="handoff-confirm-title">确认操作</h4>
+                <p id="handoff-confirm-message"></p>
+                <form method="dialog" class="tool-actions">
+                  <button value="cancel" autofocus>保留当前内容</button>
+                  <button value="confirm" class="button-dark">确定继续</button>
+                </form>
+              </dialog>
               <div class="tool-columns">
                 <form id="handoff-form" class="tool-form" autocomplete="off">
                   <label for="handoff-goal">任务目标<textarea id="handoff-goal" name="goal" rows="2" maxlength="3000"></textarea></label>
@@ -112,7 +120,7 @@
             </div>
           </details>
           <details class="work-card" id="rename-work">
-            <summary><span class="work-number">作品 03 / 可试用工具</span><span>批量文件命名预览器</span><span class="work-toggle" aria-hidden="true">+</span></summary>
+            <summary><span class="work-number">作品 03 / 可试用工具</span><span>批量文件命名预览器</span><span class="work-state"><span class="when-closed">展开试用</span><span class="when-open">收起工具</span></span><span class="work-toggle" aria-hidden="true">+</span></summary>
             <div class="work-body">
               <div class="work-story">
                 <p><strong>问题</strong>：批量整理前，需要看清每个文件的新名称，发现重复名称和不合法字符，避免边改边试。</p>
@@ -129,7 +137,7 @@
                   <label for="rename-start">起始序号<input id="rename-start" name="start" type="number" min="1" max="999999" step="1" value="1"></label>
                 </div>
               </form>
-              <p id="rename-help" class="tool-note">每次最多 200 行，空行忽略。保留普通文件的最后一段扩展名，序号至少两位。只填写文件名，不填完整路径；不检查磁盘中的同名文件。输入不会上传或保存。</p>
+              <p id="rename-help" class="tool-note">每次最多 200 行，空行忽略。保留普通文件的最后一段扩展名，序号至少两位。只填写文件名，不填完整路径；文件名前后的空格需核对。不检查磁盘中的同名文件。输入不会上传或保存。</p>
               <table class="example-table rename-table"><caption>命名对照预览</caption><thead><tr><th scope="col">原名</th><th scope="col">新名</th><th scope="col">检查</th></tr></thead><tbody id="rename-rows"></tbody></table>
               <div class="tool-result">
                 <label for="rename-output">可复制的命名对照</label><textarea id="rename-output" class="tool-output" rows="4" readonly spellcheck="false"></textarea>
